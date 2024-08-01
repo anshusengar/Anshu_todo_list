@@ -33,7 +33,7 @@
             <thead>
                 <tr>
                     <th>ID</th>
-                    <th>Name</th>
+                    <th>Task</th>
                     <th>Status</th>
                     <th>Action</th>
                 </tr>
