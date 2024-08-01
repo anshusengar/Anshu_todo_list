@@ -9,8 +9,8 @@ class TaskController extends Controller
 {
     public function index()
     {
-        $tasks = Task::all(); // Fetch all tasks from the database
-        return view('tasks.index', compact('tasks')); // Pass tasks to the view
+        $tasks = Task::all(); 
+        return view('tasks.index', compact('tasks')); 
     }
 
     public function store(Request $request)
@@ -24,7 +24,7 @@ class TaskController extends Controller
         'status' => 'Pending'
     ]);
 
-    return redirect()->route('tasks.index');
+    return redirect()->route('tasks.index')->with('success', 'Task added successfully!');
 }
 
     public function update(Request $request, $id)
@@ -42,6 +42,6 @@ class TaskController extends Controller
         $task = Task::findOrFail($id);
         $task->delete();
 
-        return redirect()->back();
+        return redirect()->back()->with('success', 'Task deleted successfully!');
     }
 }

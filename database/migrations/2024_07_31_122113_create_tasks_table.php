@@ -13,7 +13,7 @@ return new class extends Migration
     {
         Schema::create('tasks', function (Blueprint $table) {
             $table->id();
-            $table->string('name'); 
+            $table->string('name')->unique()->change();
             $table->boolean('completed')->default(false); 
             $table->string('status')->default('Pending');
             $table->timestamps();
@@ -26,6 +26,7 @@ return new class extends Migration
     public function down()
     {
         Schema::table('tasks', function (Blueprint $table) {
+            $table->dropUnique(['name']);
             $table->dropColumn('status');
         });
     }

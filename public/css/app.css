@@ -95,3 +95,14 @@ th, td {
 thead {
     background-color: #f4f4f4;
 }
+
+.alert-success {
+    color: #007bff; /* Blue background */
+    margin-bottom: 20px;
+}
+
+.alert-danger {
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb;
+}

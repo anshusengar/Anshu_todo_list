@@ -9,6 +9,21 @@
 <body>
     <div class="container">
         <h1>Task List</h1>
+        @if (session('success'))
+            <div class="alert alert-success">
+                {{ session('success') }}
+            </div>
+        @endif
+
+        @if ($errors->any())
+            <div class="alert">
+                <ul>
+                    @foreach ($errors->all() as $error)
+                        <li>{{ $error }}</li>
+                    @endforeach
+                </ul>
+            </div>
+        @endif
         <form action="{{ route('tasks.store') }}" method="POST">
             @csrf
             <input type="text" name="name" placeholder="Enter new task" required>
